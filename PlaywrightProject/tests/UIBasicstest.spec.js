@@ -35,6 +35,8 @@ test.only("page playwright test",async ({page})=>
     await expect(page.locator('.card-body a')).toHaveCount(4);
     console.log("text of first element "+await page.locator('.card-body a').first().textContent());
     console.log("text of first element "+await page.locator('.card-body a').nth(0).textContent());
+    console.log("text of first element "+await page.locator('.card-body a').last().textContent());
+    console.log("text of first element "+await page.locator('.card-body a').nth(2).textContent());
 
 
 
