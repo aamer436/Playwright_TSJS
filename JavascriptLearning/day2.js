@@ -116,3 +116,14 @@ if(Number(shipment3.weight)>0 && shipment3.status==="IN_TRANSIT" && shipment3.ad
 }else{
     console.log("no match")
 }
+
+console.log("--------Exercise 2-----------");
+const response = {
+    statusCode: "201",
+    retryCount: 0,
+    errorMessage: null
+};
+console.log(Number(response.statusCode)===201) //true
+console.log(response.retryCount || 3) //3
+console.log(response.retryCount ?? 3) //0
+console.log(response.errorMessage ?? "No error") //No error
