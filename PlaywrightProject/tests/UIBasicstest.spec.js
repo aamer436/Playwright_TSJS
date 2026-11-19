@@ -76,7 +76,7 @@ test("UI controls",async ({page})=>
 });
 
 
-test.only("child window handle",async({browser})=>
+test("child window handle",async({browser})=>
 {   
     const context = await browser.newContext();
     const page=await context.newPage();
@@ -101,7 +101,9 @@ test.only("child window handle",async({browser})=>
     const domain = arrayTxt[1].split(" ")[0];
     await page.locator("#username").fill(domain);
     //await page.pause();
-    console.log("username typed "+await page.locator("#username").textContent());
+    //console.log("username typed "+await page.locator("#username").textContent()); //will not capture text as textContent() will not
+    //capture the input content
+    console.log("username typed "+await page.locator("#username").inputValue());
 
 
 
