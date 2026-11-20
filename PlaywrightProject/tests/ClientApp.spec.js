@@ -75,11 +75,18 @@ test.only("Browser Context-Validating Error login",async ({page})=>
     await ordersList.first().waitFor();
     console.log("orderid "+await ordersList.first().textContent());
     await page.pause();
+});
 
-
-
-
-    
-    
-
+test("Flipkart search suggestions",async ({page})=>
+{
+    await page.goto("https://www.flipkart.com/");
+    const closeBtn = page.locator("text=✕");
+    const searchbar = page.locator("input[title*='Search for Products']");
+    const suggestions = page.locator(".Swx5kP");
+    await closeBtn.click();
+    await searchbar.first().waitFor();
+    await searchbar.first().pressSequentially("mobile",{delay: 500});
+    await suggestions.first().waitFor();
+    await suggestions.nth(3).locator("a div").nth(2).click();
+    await page.pause();
 });
